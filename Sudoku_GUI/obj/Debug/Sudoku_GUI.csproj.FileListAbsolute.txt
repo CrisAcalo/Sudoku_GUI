@@ -1,0 +1,11 @@
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\bin\Debug\Sudoku_GUI.exe.config
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\bin\Debug\Sudoku_GUI.exe
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\bin\Debug\Sudoku_GUI.pdb
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.Form1.resources
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.Properties.Resources.resources
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.csproj.GenerateResource.cache
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.exe
+C:\Users\USUARIO\Desktop\Uni\III\Estructura de Datos\Repositorios\Sudoku_GUI\Sudoku_GUI\obj\Debug\Sudoku_GUI.pdb
