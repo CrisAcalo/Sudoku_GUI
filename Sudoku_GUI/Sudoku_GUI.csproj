@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="SudokuCell.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -68,6 +77,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,6 +91,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerca_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar-pestana_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuadricula_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuadricula_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menos_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menos_2_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar_2_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
