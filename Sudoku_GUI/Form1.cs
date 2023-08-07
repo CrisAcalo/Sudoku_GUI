@@ -32,7 +32,7 @@ namespace Sudoku_GUI
             startNewGame();
         }
 
-        
+
         Random random = new Random();
 
         int coorx_selected = -1;
@@ -70,6 +70,14 @@ namespace Sudoku_GUI
             }
         }
 
+        private void startNewGame()
+        {
+            loadValues();
+            //initializeBoard();
+            //Show values of 45 cells as hint
+            //showRandomValuesHints(45);
+        }
+
         private void initializeBoard()
         {
             // Llenar el tablero con valores iniciales (celdas llenas)
@@ -99,9 +107,31 @@ namespace Sudoku_GUI
 
         public Boolean esPosibleInsertar(int i, int j, int valor)
         {
-            if (cells[i, j].Value != 0)
-                return false;
+            for (int a = 0; a < Dimension; a++)
+            {
+                if (a != i && cells[a, j].Value == valor)
+                    return false;
+            }
+            for (int a = 0; a < Dimension; a++)
+            {
+                if (a != j && cells[i, a].Value == valor)
+                    return false;
+            }
+            int y = (i / 3) * 3;
+            int x = (j / 3) * 3;
+            for (int a = 0; a < Dimension / 3; a++)
+            {
+                for (int b = 0; b < Dimension / 3; b++)
+                {
+                    if (a != i && b != j && cells[y + a, x + b].Value == valor)
+                        return false;
+                }
+            }
+            return true;
+        }
 
+        public Boolean esPosibleInsertarInput(int i, int j, int valor)
+        {
             for (int a = 0; a < Dimension; a++)
             {
                 if (a != i && cells[a, j].Value == valor)
@@ -124,66 +154,13 @@ namespace Sudoku_GUI
                         return false;
                 }
             }
-
             return true;
         }
 
-        private void cell_keyPressed(object sender, KeyPressEventArgs e)
-        {
-            var cell = sender as SudokuCell;
 
-            //label_coorx.Text= cell.X.ToString();
-            //label_coory.Text = cell.Y.ToString();
-
-            // Do nothing if the cell is locked
-            if (cell.IsLocked)
-                return;
-
-            int value;
-
-            // Add the pressed key value in the cell only if it is a number
-            if (int.TryParse(e.KeyChar.ToString(), out value))
-            {
-                // Clear the cell value if pressed key is zero
-                if (value == 0)
-                    cell.Clear();
-                else
-                    cell.Text = value.ToString();
-
-                cell.ForeColor = SystemColors.MenuHighlight;
-            }
-        }
-
-        private void cell_Click(object sender, EventArgs e)
-        {
-            // Obtener el control SudokuCell que disparó el evento
-            var cell = sender as SudokuCell;
-
-            // Actualizar las etiquetas label_coorx y label_coory con las coordenadas X e Y de la celda
-
-            coorx_selected = cell.X;
-            coory_selected = cell.Y;
-
-            label_coorx.Text = coorx_selected.ToString();
-            label_coory.Text = coory_selected.ToString();
-
-            // Do something when the cell is clicked
-            // Puedes agregar aquí la lógica que deseas realizar cuando el usuario hace clic en la celda
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void startNewGame()
-        {
-            //loadValues();
-            initializeBoard();
-            //Show values of 45 cells as hint
-            //showRandomValuesHints(45);
-        }
+        //#############################################################################################
+        //####################### LÓGICA PARA GENERAR UN TABLERO INICIAL VÁLIDO #######################
+        //#############################################################################################
 
         private void loadValues()
         {
@@ -310,6 +287,64 @@ namespace Sudoku_GUI
                 MessageBox.Show("You Wins");
             }
         }
+
+
+
+        private void cell_keyPressed(object sender, KeyPressEventArgs e)
+        {
+            var cell = sender as SudokuCell;
+
+            // Do nothing if the cell is locked
+            if (cell.IsLocked)
+                return;
+
+            int value;
+
+            // Add the pressed key value in the cell only if it is a number
+            if (int.TryParse(e.KeyChar.ToString(), out value))
+            {
+                // Clear the cell value if pressed key is zero
+                if (value == 0){
+                    cell.Clear();
+                    cell.BackColor = ((coorx_selected / 3) + (coory_selected / 3)) % 2 == 0 ? Color.FromArgb(255, 255, 255) : SystemColors.InactiveBorder;
+                    cell.Value = value;
+                }
+                else{
+                    if (esPosibleInsertarInput(coorx_selected, coory_selected, value))
+                    {
+                        cell.ForeColor = SystemColors.MenuHighlight;
+                        cell.BackColor = ((coorx_selected / 3) + (coory_selected / 3)) % 2 == 0 ? Color.FromArgb(255, 255, 255) : SystemColors.InactiveBorder;
+                    }
+                    else
+                    {
+                        cell.ForeColor = Color.Red;
+                        cell.BackColor = Color.FromArgb(255,236,236);
+                    }
+                    cell.Text = value.ToString();
+                    cell.Value = value;
+                }
+                valorDeCasilla.Text = cell.Value.ToString();
+            }
+        }
+
+        private void cell_Click(object sender, EventArgs e)
+        {
+            // Obtener el control SudokuCell que disparó el evento
+            var cell = sender as SudokuCell;
+
+            // Actualizar las etiquetas label_coorx y label_coory con las coordenadas X e Y de la celda
+
+            coorx_selected = cell.X;
+            coory_selected = cell.Y;
+
+            //label_coorx.Text = coorx_selected.ToString();
+            //label_coory.Text = coory_selected.ToString();
+
+            // Do something when the cell is clicked
+            // Puedes agregar aquí la lógica que deseas realizar cuando el usuario hace clic en la celda
+        }
+
+        
 
 
 
